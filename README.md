@@ -1,6 +1,6 @@
-# Python2/3-SYN-Flood-Attack-Tool
+# Python3-HTTP-Flood-Attack
 
-Python HTTP Flood Attack Tool
+Python HTTP Flood Attack
 
 You can start HTTP Flood attack with this tool.
 
